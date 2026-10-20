@@ -1,0 +1,10 @@
+{
+    "name": "camera-events",
+    "url": "https://github.com/pedrinducavalo/camera-events",
+    "license": "MIT",
+    "tags": ["utilities", "tools"],
+    "description": "eventos de camera pra fnf",
+    "version": "0.0.1",
+    "releasenote": "primeira versao",
+    "contributors": ["dre"]
+}
