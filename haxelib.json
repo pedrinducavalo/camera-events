@@ -4,7 +4,7 @@
     "license": "MIT",
     "tags": ["utilities", "camera", "leather", "fnf", "events"],
     "description": "eventos de camera pra fnf",
-    "version": "0.0.1",
-    "releasenote": "primeira versao",
+    "version": "0.0.2",
+    "releasenote": "bug nas cameras do core corrigido",
     "contributors": ["dre"]
 }

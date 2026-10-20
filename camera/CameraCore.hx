@@ -10,6 +10,7 @@ import camera.editor.CameraEditorState;
 
 import flixel.FlxObject;
 import flixel.FlxCamera;
+import flixel.math.FlxPoint;
 
 final class CameraCore
 {
@@ -20,8 +21,8 @@ final class CameraCore
 	public var playStateInstance:PlayState;
 	public var editorInstance:CameraEditorState;
 	
-	public var oldCamGame:FlxCamera;
-	public var oldCamFollow:FlxObject;
+	public var camGame:FlxCamera; // pra referencia
+	public var camFollowPos:FlxPoint;
 	
 	public function new(instance:Dynamic)
 	{
@@ -34,8 +35,9 @@ final class CameraCore
 		else if (instance is PlayState)
 		{
 			playStateInstance = cast instance;
-			oldCamGame = playStateInstance.camGame;
-			oldCamFollow = playStateInstance.camFollow;
+			camGame = new FlxCamera();
+			camFollowPos = new FlxPoint();
+			camFollowPos.set(playStateInstance.camFollow.x, playStateInstance.camFollow.y);
 		}
 		
 		modifierManager = new CameraModifierManager(instance);
@@ -66,14 +68,16 @@ final class CameraCore
 	{
 		if (playStateInstance != null)
 		{
-			playStateInstance.camGame = oldCamGame;
-			playStateInstance.camFollow = oldCamFollow;
+			playStateInstance.camGame.zoom = camGame.zoom;
+			playStateInstance.camGame.angle = camGame.angle;
+			playStateInstance.camFollow.setPosition(camFollowPos.x, camFollowPos.y);
 		}
 		else if (editorInstance != null)
 		{
 			/*
-				editorInstance.gamePreview.camGame = oldCamGame;
-				editorInstance.gamePreview.camFollow = oldCamFollow;
+				editorInstance.gamePreview.camGame.zoom = camGame.zoom;
+				editorInstance.gamePreview.camGame.angle = camGame.angle;
+				editorInstance.gamePreview.camFollow.setPosition(camFollow.x, camFollow.y);
 			 */
 		}
 	}

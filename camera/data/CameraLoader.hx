@@ -157,7 +157,7 @@ final class CameraLoader
 		var subModCheck = eventData.modifier.split(':');
 		var beat = Conductor.crochet * .001;
 		
-		switch (event.type)
+		switch (event.type.toLowerCase().trim())
 		{
 			case "set":
 				if (subModCheck.length > 1)
