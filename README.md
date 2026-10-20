@@ -105,7 +105,7 @@ If you are using this with Leather Engine, this setup is the intended path for n
 
 ## License
 
-This project does not currently declare a specific license in the repository metadata, so please check the repo contents and project configuration before redistributing or using it in a production project.
+This project is licensed under the MIT License.
 
 ## Contributing
 
